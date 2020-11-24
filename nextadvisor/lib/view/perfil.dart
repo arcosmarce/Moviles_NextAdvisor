@@ -27,14 +27,24 @@ class _PerfilWidgetState extends State<PerfilWidget> {
       future: getUsuario(),
       builder: (BuildContext context, AsyncSnapshot<Usuario> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return CircularProgressIndicator();
+          return Center(
+            child: CircularProgressIndicator(),
+          );
         } else {
-          print(snapshot.data);
           return ListView(
             children: <Widget>[
+              Text("Informacion personal", style: TextStyle(
+                fontSize: 20,
+                color: Color(0xFF386FA4),
+                fontWeight: FontWeight.bold,
+                letterSpacing: 2.0,
+                wordSpacing:2.0,
+              ),),
               Text(snapshot.data.cuentaNombre),
               Text(snapshot.data.cuentaApellidoPaterno),
               Text(snapshot.data.cuentaApellidoMaterno),
+              Text(snapshot.data.cuentaCorreo),
+              Text(snapshot.data.cuentaTelefono),
             ],
           );
         }
