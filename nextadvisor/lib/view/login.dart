@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
     var jsonProfileInfo = null;
 
     var response =
-        await http.post("http://192.168.1.74:8000/api/auth/login", body: data);
+        await http.post("http://192.168.56.1:8000/api/auth/login", body: data);
     if (response.statusCode == 200) {
       jsonResponse = json.decode(response.body);
       print('Response status: ${response.statusCode}');
@@ -53,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
         });
         sharedPreferences.setString("token", jsonResponse['access_token']);
         var responseData = await http
-            .get("http://192.168.1.74:8000/api/auth/profile", headers: {
+            .get("http://192.168.56.1:8000/api/auth/profile", headers: {
           "Authorization": "Bearer " + jsonResponse['access_token']
         });
         jsonProfileInfo = json.decode(responseData.body);

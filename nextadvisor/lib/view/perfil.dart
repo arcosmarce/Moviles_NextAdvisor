@@ -14,9 +14,10 @@ class PerfilWidget extends StatefulWidget {
 Future<Usuario> getUsuario() async {
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
   String id = sharedPreferences.getInt('cuenta_id').toString();
-  final response = await http.get("http://192.168.1.74:8000/api/cuenta/obtenerCuenta/"+ id, headers: {
-          "Authorization": "Bearer " + sharedPreferences.getString("token")
-        });
+  final response = await http
+      .get("http://192.168.56.1:8000/api/cuenta/obtenerCuenta/" + id, headers: {
+    "Authorization": "Bearer " + sharedPreferences.getString("token")
+  });
   return usuarioFromJson(response.body);
 }
 
@@ -33,13 +34,16 @@ class _PerfilWidgetState extends State<PerfilWidget> {
         } else {
           return ListView(
             children: <Widget>[
-              Text("Informacion personal", style: TextStyle(
-                fontSize: 20,
-                color: Color(0xFF386FA4),
-                fontWeight: FontWeight.bold,
-                letterSpacing: 2.0,
-                wordSpacing:2.0,
-              ),),
+              Text(
+                "Informacion personal",
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Color(0xFF386FA4),
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 2.0,
+                  wordSpacing: 2.0,
+                ),
+              ),
               Text(snapshot.data.cuentaNombre),
               Text(snapshot.data.cuentaApellidoPaterno),
               Text(snapshot.data.cuentaApellidoMaterno),
