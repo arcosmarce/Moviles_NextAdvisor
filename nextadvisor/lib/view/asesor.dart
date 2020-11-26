@@ -8,6 +8,8 @@ import 'Perfil.dart';
 import 'asesoria.dart';
 import 'home.dart';
 import 'login.dart';
+import 'consultarAsesoria.dart';
+import 'detailAsesoria.dart';
 
 class AsesorPage extends StatefulWidget {
   @override
@@ -20,7 +22,8 @@ class _AsesorPageState extends State<AsesorPage> {
   final List<Widget> _children = [
     HomeWidget(),
     PerfilWidget(),
-    AsesoriaWidget()
+    //AddDataAsesoria(),
+    ConsultarAsesorias()
   ];
   @override
   void initState() {

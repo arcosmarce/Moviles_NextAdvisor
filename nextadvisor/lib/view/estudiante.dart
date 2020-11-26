@@ -8,6 +8,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import '../main.dart';
 import 'login.dart';
+import 'consultarAsesoria.dart';
 
 class EstudiantePage extends StatefulWidget {
   @override
@@ -20,7 +21,7 @@ class _EstudiantePageState extends State<EstudiantePage> {
   final List<Widget> _children = [
     HomeWidget(),
     PerfilWidget(),
-    AsesoriaWidget()
+    AddDataAsesoria()
   ];
   @override
   void initState() {

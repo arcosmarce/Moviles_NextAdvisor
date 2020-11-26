@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:nextadvisor/controladores/databasehelper.dart';
 import 'package:nextadvisor/main.dart';
+import 'package:flutter/material.dart';
 
 class AddDataAsesoria extends StatefulWidget {
   AddDataAsesoria({Key key, this.title}) : super(key: key);
@@ -16,8 +16,6 @@ class _AddDataAsesoriaState extends State<AddDataAsesoria> {
   final TextEditingController _fechaController = new TextEditingController();
   final TextEditingController _tarifaController = new TextEditingController();
   final TextEditingController _materiaController = new TextEditingController();
-
-//class AsesoriaWidget extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
@@ -101,4 +99,3 @@ class _AddDataAsesoriaState extends State<AddDataAsesoria> {
     );
   }
 }
-//}

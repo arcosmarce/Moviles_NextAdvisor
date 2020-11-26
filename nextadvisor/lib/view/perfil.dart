@@ -14,10 +14,11 @@ class PerfilWidget extends StatefulWidget {
 Future<Usuario> getUsuario() async {
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
   String id = sharedPreferences.getInt('cuenta_id').toString();
-  final response = await http
-      .get("http://192.168.56.1:8000/api/cuenta/obtenerCuenta/" + id, headers: {
-    "Authorization": "Bearer " + sharedPreferences.getString("token")
-  });
+  final response = await http.get(
+      "http://api.nextadvisor.com.mx/api/cuenta/obtenerCuenta/" + id,
+      headers: {
+        "Authorization": "Bearer " + sharedPreferences.getString("token")
+      });
   return usuarioFromJson(response.body);
 }
 
