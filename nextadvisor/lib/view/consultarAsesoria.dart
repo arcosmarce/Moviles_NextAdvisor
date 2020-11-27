@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:ffi';
 import 'package:nextadvisor/view/detailAsesoria.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -79,4 +80,31 @@ class ItemList extends StatelessWidget {
       },
     );
   }
+}
+
+@override
+Widget build(BuildContext context) {
+  return new Scaffold(
+    body: new Container(
+      height: 270.0,
+      padding: const EdgeInsets.all(20.0),
+      child: new Card(
+        child: new Center(
+          child: new Column(
+            children: <Widget>[
+              new Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  new RaisedButton(
+                      child: new Text("Editar"),
+                      color: Colors.blueAccent,
+                      onPressed: null),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
 }

@@ -22,7 +22,7 @@ class _AddDataAsesoriaState extends State<AddDataAsesoria> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Add Product',
+      title: 'Registrar asesoría',
       home: Scaffold(
         appBar: AppBar(
           title: Text('Registrar Asesoria'),
@@ -38,9 +38,8 @@ class _AddDataAsesoriaState extends State<AddDataAsesoria> {
                   controller: _fechaController,
                   keyboardType: TextInputType.datetime,
                   decoration: InputDecoration(
-                    labelText: 'oferta_fecha',
-                    hintText: 'Fecha',
-                    icon: new Icon(Icons.email),
+                    labelText: 'Fecha - AAAA-MM-DD',
+                    icon: new Icon(Icons.today),
                   ),
                 ),
               ),
@@ -50,9 +49,8 @@ class _AddDataAsesoriaState extends State<AddDataAsesoria> {
                   controller: _tarifaController,
                   keyboardType: TextInputType.text,
                   decoration: InputDecoration(
-                    labelText: 'oferta_tarifa',
-                    hintText: 'Tarifa',
-                    icon: new Icon(Icons.vpn_key),
+                    labelText: 'Tarifa',
+                    icon: new Icon(Icons.payment),
                   ),
                 ),
               ),
@@ -65,9 +63,8 @@ class _AddDataAsesoriaState extends State<AddDataAsesoria> {
                   controller: _materiaController,
                   keyboardType: TextInputType.text,
                   decoration: InputDecoration(
-                    labelText: 'materia_id',
-                    hintText: 'Materia',
-                    icon: new Icon(Icons.vpn_key),
+                    labelText: 'Materia',
+                    icon: new Icon(Icons.subject),
                   ),
                 ),
               ),
@@ -88,7 +85,7 @@ class _AddDataAsesoriaState extends State<AddDataAsesoria> {
                   },
                   color: Colors.blue,
                   child: new Text(
-                    'Add',
+                    'Registrar',
                     style: new TextStyle(
                         color: Colors.white, backgroundColor: Colors.blue),
                   ),
@@ -101,4 +98,3 @@ class _AddDataAsesoriaState extends State<AddDataAsesoria> {
     );
   }
 }
-//}

@@ -18,6 +18,7 @@ class _EditarAsesoriaState extends State<EditarAsesoria> {
   TextEditingController controllerFecha;
   TextEditingController controllerTarifa;
   TextEditingController controllerId;
+  TextEditingController controllerMateria;
 
   @override
   void initState() {
@@ -27,6 +28,8 @@ class _EditarAsesoriaState extends State<EditarAsesoria> {
         text: widget.list[widget.index]['oferta_fecha'].toString());
     controllerTarifa = new TextEditingController(
         text: widget.list[widget.index]['oferta_tarifa'].toString());
+    controllerMateria = new TextEditingController(
+        text: widget.list[widget.index]['materia_id'].toString());
 
     super.initState();
   }
@@ -64,9 +67,18 @@ class _EditarAsesoriaState extends State<EditarAsesoria> {
                       if (value.isEmpty) return "Tarifa";
                     },
                     decoration: new InputDecoration(
-                      hintText: "oferta_tarifa",
-                      labelText: "oferta_tarifa",
-                    ),
+                        hintText: "oferta_tarifa", labelText: "oferta_tarifa"),
+                  ),
+                ),
+                new ListTile(
+                  leading: const Icon(Icons.location_on, color: Colors.black),
+                  title: new TextFormField(
+                    controller: controllerMateria,
+                    validator: (value) {
+                      if (value.isEmpty) return "Materia";
+                    },
+                    decoration: new InputDecoration(
+                        hintText: "materia_id", labelText: "materia_id"),
                   ),
                 ),
                 const Divider(
@@ -82,6 +94,7 @@ class _EditarAsesoriaState extends State<EditarAsesoria> {
                     databaseHelper.editarAsesoria(
                         controllerId.text.trim(),
                         controllerFecha.text.trim(),
+                        controllerMateria.text.trim(),
                         controllerTarifa.text.trim());
                     Navigator.of(context).push(new MaterialPageRoute(
                       builder: (BuildContext context) =>

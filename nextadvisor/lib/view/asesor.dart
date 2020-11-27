@@ -7,6 +7,7 @@ import '../main.dart';
 import 'Perfil.dart';
 import 'asesoria.dart';
 import 'home.dart';
+import 'dropMateria.dart';
 import 'login.dart';
 import 'consultarAsesoria.dart';
 import 'detailAsesoria.dart';
@@ -22,8 +23,8 @@ class _AsesorPageState extends State<AsesorPage> {
   final List<Widget> _children = [
     HomeWidget(),
     PerfilWidget(),
-    //AddDataAsesoria(),
-    ConsultarAsesorias()
+    ConsultarAsesorias(),
+    AddDataAsesoria(),
   ];
   @override
   void initState() {
@@ -60,6 +61,7 @@ class _AsesorPageState extends State<AsesorPage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         iconSize: 30,
+        unselectedItemColor: Color(0xFF386FA4),
         selectedItemColor: Color(0xFF386FA4),
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
@@ -67,6 +69,8 @@ class _AsesorPageState extends State<AsesorPage> {
               icon: Icon(Icons.person), title: Text('Cuenta')),
           BottomNavigationBarItem(
               icon: Icon(Icons.school), title: Text('Asesorias')),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.edit_road), title: Text('Registrar asesoria'))
         ],
         onTap: (index) {
           setState(() {
