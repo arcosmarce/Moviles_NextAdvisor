@@ -50,7 +50,7 @@ class _EstudiantePageState extends State<EstudiantePage> {
                       builder: (BuildContext context) => LoginPage()),
                   (Route<dynamic> route) => false);
             },
-            child: Text("Log Out", style: TextStyle(color: Colors.white)),
+            child: Text("Cerrar sesión", style: TextStyle(color: Colors.white)),
           ),
         ],
       ),
