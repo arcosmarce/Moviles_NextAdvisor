@@ -53,11 +53,15 @@ class _AsesorPageState extends State<AsesorPage> {
                       builder: (BuildContext context) => LoginPage()),
                   (Route<dynamic> route) => false);
             },
-            child: Text("Log Out", style: TextStyle(color: Colors.white)),
+            child: Text("Cerrar sesión", style: TextStyle(color: Colors.white)),
           ),
         ],
       ),
-      body: Center(child: _children[_currentIndex]),
+      body: Center(
+          child: Container(
+        padding: EdgeInsets.all(15.0),
+        child: _children[_currentIndex],
+      )),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         iconSize: 30,
