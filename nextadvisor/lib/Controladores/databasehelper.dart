@@ -36,21 +36,19 @@ class DataBaseHelper {
     }
   }
 
-//fFuncion Actualizar asesoria
-  void editarAsesoria(String controllerId, String controllerFecha,
-      String controllerTarifa, String controllerMateria) async {
+//Funcion Actualizar asesoria
+  void editarAsesoria(
+      String fecha, String tarifa, String id, String materia) async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'token';
     final value = prefs.get(key) ?? 0;
 
-    String myUrl = "http://api.nextadvisor.com.mx/api/asesoria/$controllerId";
-    http.put(myUrl, headers: {
-      'Accept': 'application/json',
-      'Authorization': 'Bearer $value'
-    }, body: {
-      "oferta_fecha": "$controllerFecha",
-      "oferta_tarifa": "$controllerTarifa",
-      "materia_id": "$controllerMateria"
+    String myUrl = "http://api.nextadvisor.com.mx/api/asesoria/$id";
+    http.put(myUrl, body: {
+      // "oferta_id": "$id",
+      "oferta_fecha": "$fecha",
+      "oferta_tarifa": "$tarifa",
+      "materia_id": "$materia",
     }).then((response) {
       print('Response status : ${response.statusCode}');
       print('Response body : ${response.body}');

@@ -10,10 +10,11 @@ class PerfilWidget extends StatefulWidget {
   @override
   _PerfilWidgetState createState() => _PerfilWidgetState();
 }
+
 String nombreRol;
 Future<Usuario> getUsuario() async {
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-  nombreRol= sharedPreferences.getString("nombreRol");
+  nombreRol = sharedPreferences.getString("nombreRol");
   String id = sharedPreferences.getInt('cuenta_id').toString();
   final response = await http.get(
       "http://api.nextadvisor.com.mx/api/cuenta/obtenerCuenta/" + id,

@@ -78,8 +78,8 @@ class _AddDataAsesoriaState extends State<AddDataAsesoria> {
                         _tarifaController.text.trim(),
                         _materiaController.text.trim());
                     Navigator.of(context).push(new MaterialPageRoute(
-                        // builder: (BuildContext context) => new MainPage(),
-                        ));
+                      builder: (BuildContext context) => new MainPage(),
+                    ));
                   },
                   color: Colors.blue,
                   child: new Text(

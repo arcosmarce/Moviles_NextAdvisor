@@ -70,7 +70,7 @@ class ItemList extends StatelessWidget {
             child: new Card(
               child: new ListTile(
                 title: new Text(
-                  list[i]['oferta_fecha'].toString(),
+                  list[i]['materia_nombre'].toString(),
                   style: TextStyle(fontSize: 25.0, color: Colors.orangeAccent),
                 ),
               ),

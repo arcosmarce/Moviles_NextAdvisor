@@ -1,6 +1,7 @@
 import 'package:nextadvisor/Controladores/databasehelper.dart';
 import 'package:nextadvisor/view/consultarAsesoria.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class EditarAsesoria extends StatefulWidget {
   final List list;
@@ -51,7 +52,7 @@ class _EditarAsesoriaState extends State<EditarAsesoria> {
                   title: new TextFormField(
                     controller: controllerFecha,
                     validator: (value) {
-                      if (value.isEmpty) return "Ingresa una fecha";
+                      if (value.isEmpty) return "oferta_fecha";
                     },
                     decoration: new InputDecoration(
                       hintText: "oferta_fecha",
@@ -64,7 +65,7 @@ class _EditarAsesoriaState extends State<EditarAsesoria> {
                   title: new TextFormField(
                     controller: controllerTarifa,
                     validator: (value) {
-                      if (value.isEmpty) return "Tarifa";
+                      if (value.isEmpty) return "oferta_tarifa";
                     },
                     decoration: new InputDecoration(
                         hintText: "oferta_tarifa", labelText: "oferta_tarifa"),
@@ -75,7 +76,7 @@ class _EditarAsesoriaState extends State<EditarAsesoria> {
                   title: new TextFormField(
                     controller: controllerMateria,
                     validator: (value) {
-                      if (value.isEmpty) return "Materia";
+                      if (value.isEmpty) return "materia_id";
                     },
                     decoration: new InputDecoration(
                         hintText: "materia_id", labelText: "materia_id"),
@@ -92,10 +93,11 @@ class _EditarAsesoriaState extends State<EditarAsesoria> {
                   color: Colors.blueAccent,
                   onPressed: () {
                     databaseHelper.editarAsesoria(
-                        controllerId.text.trim(),
                         controllerFecha.text.trim(),
-                        controllerMateria.text.trim(),
-                        controllerTarifa.text.trim());
+                        controllerTarifa.text.trim(),
+                        controllerId.text.trim(),
+                        controllerMateria.text.trim());
+
                     Navigator.of(context).push(new MaterialPageRoute(
                       builder: (BuildContext context) =>
                           new ConsultarAsesorias(),
