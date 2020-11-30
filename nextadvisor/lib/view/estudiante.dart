@@ -9,6 +9,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../main.dart';
 import 'login.dart';
 import 'consultarAsesoria.dart';
+import 'consultarAsesoriaEstudiate.dart';
+import 'ConsultarAsesoria_ST.dart';
 
 class EstudiantePage extends StatefulWidget {
   @override
@@ -21,7 +23,8 @@ class _EstudiantePageState extends State<EstudiantePage> {
   final List<Widget> _children = [
     HomeWidget(),
     PerfilWidget(),
-    AddDataAsesoria()
+    ConsultarAsesoriaEstudiante(),
+    ConsultarAsesoria()
   ];
   @override
   void initState() {
@@ -59,12 +62,15 @@ class _EstudiantePageState extends State<EstudiantePage> {
         currentIndex: _currentIndex,
         iconSize: 30,
         selectedItemColor: Color(0xFF386FA4),
+        unselectedItemColor: Color(0xFF386FA4),
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
           BottomNavigationBarItem(
               icon: Icon(Icons.person), title: Text('Cuenta')),
           BottomNavigationBarItem(
               icon: Icon(Icons.school), title: Text('Asesorias')),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.how_to_reg), title: Text('Mis asesorias')),
         ],
         onTap: (index) {
           setState(() {

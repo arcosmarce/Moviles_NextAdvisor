@@ -24,7 +24,7 @@ class _AsesorPageState extends State<AsesorPage> {
     HomeWidget(),
     PerfilWidget(),
     ConsultarAsesorias(),
-    AddDataAsesoria()
+    AddDataAsesoria(),
   ];
   @override
   void initState() {

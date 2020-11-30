@@ -1,51 +1,20 @@
 import 'package:nextadvisor/view/editarAsesoria.dart';
 import 'package:nextadvisor/view/consultarAsesoria.dart';
+import 'package:nextadvisor/view/RegistroAsesoriaEstudiante.dart';
 import 'package:flutter/material.dart';
 import 'package:nextadvisor/Controladores/databasehelper.dart';
 
-class Detail extends StatefulWidget {
+class DetailEstudiante extends StatefulWidget {
   List list;
   int index;
-  Detail({this.index, this.list});
+  DetailEstudiante({this.index, this.list});
 
   @override
-  _DetailState createState() => _DetailState();
+  _DetailEstudianteState createState() => _DetailEstudianteState();
 }
 
-class _DetailState extends State<Detail> {
+class _DetailEstudianteState extends State<DetailEstudiante> {
   DataBaseHelper databaseHelper = new DataBaseHelper();
-
-  //create function delete
-  void confirm() {
-    AlertDialog alertDialog = new AlertDialog(
-      content: new Text(
-          "Esta seguto de eliminar '${widget.list[widget.index]['oferta_fecha']}'"),
-      actions: <Widget>[
-        new RaisedButton(
-          child: new Text(
-            "OK",
-            style: new TextStyle(color: Colors.black),
-          ),
-          color: Colors.red,
-          onPressed: () {
-            databaseHelper.removeRegister(
-                widget.list[widget.index]['oferta_id'].toString());
-            Navigator.of(context).push(new MaterialPageRoute(
-              builder: (BuildContext context) => new ConsultarAsesorias(),
-            ));
-          },
-        ),
-        new RaisedButton(
-          child:
-              new Text("CANCELAR", style: new TextStyle(color: Colors.black)),
-          color: Colors.green,
-          onPressed: () => Navigator.pop(context),
-        ),
-      ],
-    );
-
-    showDialog(context: context, child: alertDialog);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,12 +32,12 @@ class _DetailState extends State<Detail> {
                   padding: const EdgeInsets.only(top: 30.0),
                 ),
                 new Text(
-                  widget.list[widget.index]['oferta_fecha'],
+                  "Fecha:  ${widget.list[widget.index]['oferta_fecha']}",
                   style: new TextStyle(fontSize: 20.0),
                 ),
                 Divider(),
                 new Text(
-                  "Tarifa por: ${widget.list[widget.index]['oferta_tarifa']}",
+                  "Tarifa por hora: ${widget.list[widget.index]['oferta_tarifa']}",
                   style: new TextStyle(fontSize: 18.0),
                 ),
                 new Padding(
@@ -78,26 +47,19 @@ class _DetailState extends State<Detail> {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     new RaisedButton(
-                      child: new Text("Editar"),
+                      child: new Text("Registrarme"),
                       color: Colors.blueAccent,
                       shape: new RoundedRectangleBorder(
                           borderRadius: new BorderRadius.circular(30.0)),
                       onPressed: () =>
                           Navigator.of(context).push(new MaterialPageRoute(
-                        builder: (BuildContext context) => new EditarAsesoria(
+                        builder: (BuildContext context) => new Registro(
                           list: widget.list,
                           index: widget.index,
                         ),
                       )),
                     ),
                     VerticalDivider(),
-                    new RaisedButton(
-                      child: new Text("Eliminar"),
-                      color: Colors.redAccent,
-                      shape: new RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(30.0)),
-                      onPressed: () => confirm(),
-                    ),
                   ],
                 )
               ],

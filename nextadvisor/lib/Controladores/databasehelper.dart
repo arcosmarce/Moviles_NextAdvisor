@@ -36,6 +36,25 @@ class DataBaseHelper {
     }
   }
 
+//Funcion para registrarse a una
+  void registro(String id, String estudiante, String calif) async {
+    final prefs = await SharedPreferences.getInstance();
+
+    final key = 'token';
+    final value = prefs.get(key) ?? 0;
+    //String idC = prefs.getInt('cuenta_id').toString();
+
+    String myUrl = "http://api.nextadvisor.com.mx/api/registro/$id";
+    http.put(myUrl, body: {
+      "oferta_id": "$id",
+      "estudiante_id": "$estudiante",
+      "asesoria_calificacion": "0"
+    }).then((response) {
+      print('Response status : ${response.statusCode}');
+      print('Response body : ${response.body}');
+    });
+  }
+
 //Funcion Actualizar asesoria
   void editarAsesoria(
       String fecha, String tarifa, String id, String materia) async {
