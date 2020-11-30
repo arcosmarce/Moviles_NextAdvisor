@@ -1,16 +1,11 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
-import '../main.dart';
 import 'Perfil.dart';
-import 'asesoria.dart';
 import 'home.dart';
-import 'dropMateria.dart';
 import 'login.dart';
 import 'consultarAsesoria.dart';
-import 'detailAsesoria.dart';
+import 'RegistrarAsesoria.dart';
 
 class AsesorPage extends StatefulWidget {
   @override
@@ -24,7 +19,9 @@ class _AsesorPageState extends State<AsesorPage> {
     HomeWidget(),
     PerfilWidget(),
     ConsultarAsesorias(),
-    AddDataAsesoria(),
+    AddDataAsesoria()
+    //Drop()
+   
   ];
   @override
   void initState() {

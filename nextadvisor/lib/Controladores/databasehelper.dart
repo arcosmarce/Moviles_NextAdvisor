@@ -10,30 +10,27 @@ class DataBaseHelper {
 
   //Funcion para registrar asesoria
   void addDataAsesoria(String _fechaController, String _tarifaController,
-      String _materiaController) async {
+    String _materiaController) async {
     final prefs = await SharedPreferences.getInstance();
+    SharedPreferences sharedPreferences =await SharedPreferences.getInstance();
+
     final key = 'token';
     final value = prefs.get(key) ?? 0;
+    int id = sharedPreferences.getInt('cuenta_id');
 
     // String myUrl = "$serverUrl/api";
     String myUrl = "http://api.nextadvisor.com.mx/api/asesoria";
     final response = await http.post(myUrl, headers: {
       'Accept': 'application/json'
     }, body: {
+      "estudiante_id": "$id",
       "oferta_fecha": "$_fechaController",
       "oferta_tarifa": "$_tarifaController",
       "materia_id": "$_materiaController"
+    }).then((response) {
+      print('Response status : ${response.statusCode}');
+      print('Response body : ${response.body}');
     });
-    status = response.body.contains('error');
-
-    var data = json.decode(response.body);
-
-    if (status) {
-      print('data : ${data["error"]}');
-    } else {
-      print('data : ${data["token"]}');
-      _save(data["token"]);
-    }
   }
 
 //Funcion para registrarse a una
@@ -68,6 +65,7 @@ class DataBaseHelper {
       "oferta_fecha": "$fecha",
       "oferta_tarifa": "$tarifa",
       "materia_id": "$materia",
+      
     }).then((response) {
       print('Response status : ${response.statusCode}');
       print('Response body : ${response.body}');

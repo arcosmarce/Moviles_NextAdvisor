@@ -4,6 +4,7 @@ import 'dart:ffi';
 import 'package:nextadvisor/view/detailAsesoria.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ConsultarAsesorias extends StatefulWidget {
   @override
@@ -14,11 +15,13 @@ class _ConsultarAsesoriasState extends State<ConsultarAsesorias> {
   List data;
 
   Future<List> getData() async {
+  SharedPreferences sharedPreferences =await SharedPreferences.getInstance();
+  String id = sharedPreferences.getInt('cuenta_id').toString();
     final response =
         await http.get("http://api.nextadvisor.com.mx/api/asesoria");
     return json.decode(response.body);
   }
-
+  
   @override
   void initState() {
     super.initState();
