@@ -119,7 +119,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
               ),
               //Nombre
               Container(
-                margin: EdgeInsets.fromLTRB(0, 20.0, 0, 0),
+                margin: EdgeInsets.fromLTRB(15, 20.0, 0, 0),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -132,7 +132,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.fromLTRB(5.0, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(8.0, 0, 0, 0),
                       child: Text(
                         "Nombre",
                         style: TextStyle(
@@ -164,7 +164,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
               ),
               //Genero
               Container(
-                margin: EdgeInsets.fromLTRB(0, 30.0, 0, 0),
+                margin: EdgeInsets.fromLTRB(15, 30.0, 0, 0),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -177,7 +177,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.fromLTRB(5.0, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(8.0, 0, 0, 0),
                       child: Text(
                         "Genero",
                         style: TextStyle(
@@ -205,7 +205,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
               ),
               //Correo
               Container(
-                margin: EdgeInsets.fromLTRB(0, 30.0, 0, 0),
+                margin: EdgeInsets.fromLTRB(15, 30.0, 0, 0),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -218,7 +218,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.fromLTRB(5.0, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(8.0, 0, 0, 0),
                       child: Text(
                         "Correo",
                         style: TextStyle(
@@ -246,7 +246,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
               ),
               //Telefono
               Container(
-                margin: EdgeInsets.fromLTRB(0, 30.0, 0, 0),
+                margin: EdgeInsets.fromLTRB(15, 30.0, 0, 0),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -259,7 +259,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.fromLTRB(5.0, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(8.0, 0, 0, 0),
                       child: Text(
                         "Telefono",
                         style: TextStyle(
