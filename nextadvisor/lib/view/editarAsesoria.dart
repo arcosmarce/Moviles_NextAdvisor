@@ -71,17 +71,7 @@ class _EditarAsesoriaState extends State<EditarAsesoria> {
                         hintText: "oferta_tarifa", labelText: "oferta_tarifa"),
                   ),
                 ),
-                new ListTile(
-                  leading: const Icon(Icons.location_on, color: Colors.black),
-                  title: new TextFormField(
-                    controller: controllerMateria,
-                    validator: (value) {
-                      if (value.isEmpty) return "materia_id";
-                    },
-                    decoration: new InputDecoration(
-                        hintText: "materia_id", labelText: "materia_id"),
-                  ),
-                ),
+               
                 const Divider(
                   height: 1.0,
                 ),

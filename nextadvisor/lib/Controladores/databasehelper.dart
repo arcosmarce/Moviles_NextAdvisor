@@ -26,7 +26,7 @@ class DataBaseHelper {
       "estudiante_id": "$id",
       "oferta_fecha": "$_fechaController",
       "oferta_tarifa": "$_tarifaController",
-      "materia_id": "$_materiaController"
+      "materia_id": "3"
     }).then((response) {
       print('Response status : ${response.statusCode}');
       print('Response body : ${response.body}');
@@ -41,7 +41,7 @@ class DataBaseHelper {
     final value = prefs.get(key) ?? 0;
     //String idC = prefs.getInt('cuenta_id').toString();
 
-    String myUrl = "http://api.nextadvisor.com.mx/api/registro/$id";
+    String myUrl = "http://api.nextadvisor.com.mx/api/registro/inscribir/$id";
     http.put(myUrl, body: {
       "oferta_id": "$id",
       "estudiante_id": "$estudiante",

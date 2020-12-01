@@ -15,7 +15,8 @@ class _AddDataAsesoriaState extends State<AddDataAsesoria> {
 
   final TextEditingController _fechaController = new TextEditingController();
   final TextEditingController _tarifaController = new TextEditingController();
-  final TextEditingController _materiaController = new TextEditingController();
+   final TextEditingController _materiaController = new TextEditingController();
+  
   String dropdownValue = 'Calculo';
 
   @override
@@ -28,7 +29,7 @@ class _AddDataAsesoriaState extends State<AddDataAsesoria> {
         body: Container(
           child: ListView(
             padding: const EdgeInsets.only(
-                top: 62, left: 12.0, right: 12.0, bottom: 12.0),
+                top: 200, left: 12.0, right: 12.0, bottom: 40.0),
             children: <Widget>[
               Container(
                 height: 50,
@@ -57,8 +58,8 @@ class _AddDataAsesoriaState extends State<AddDataAsesoria> {
               ),
               Container(
                 
-                child: new Drop(
-                  
+                child:Drop(
+                
                 ),
               ),
               new Padding(
@@ -133,6 +134,8 @@ class _DropState extends State<Drop> {
         return DropdownMenuItem<String>(
           value: value,
           child: Text(value),
+          
+         
         );
       }).toList(),
     );

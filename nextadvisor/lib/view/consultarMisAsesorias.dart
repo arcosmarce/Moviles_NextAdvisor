@@ -1,28 +1,27 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:ffi';
-import 'package:nextadvisor/view/detailAsesoriaEstudiante.dart';
-import 'package:nextadvisor/view/RegistroAsesoriaEstudiante.dart';
+import 'package:nextadvisor/view/detailAsesoria.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
-class ConsultarAsesoriaEstudiante extends StatefulWidget {
+class Consultar extends StatefulWidget {
   @override
-  _ConsultarAsesoriaEstudianteState createState() =>
-      _ConsultarAsesoriaEstudianteState();
+  _ConsultarState createState() => _ConsultarState();
 }
 
-class _ConsultarAsesoriaEstudianteState
-    extends State<ConsultarAsesoriaEstudiante> {
+class _ConsultarState extends State<Consultar> {
   List data;
 
   Future<List> getData() async {
+  SharedPreferences sharedPreferences =await SharedPreferences.getInstance();
+  String id = sharedPreferences.getInt('cuenta_id').toString();
     final response =
-        await http.get("http://api.nextadvisor.com.mx/api/asesoria");
+        await http.get("http://api.nextadvisor.com.mx/api/registro/listarAsesorias/32");
     return json.decode(response.body);
   }
   
-
   @override
   void initState() {
     super.initState();
@@ -66,7 +65,7 @@ class ItemList extends StatelessWidget {
           child: new GestureDetector(
             onTap: () => Navigator.of(context).push(
               new MaterialPageRoute(
-                  builder: (BuildContext context) => new Registro(
+                  builder: (BuildContext context) => new Detail(
                         list: list,
                         index: i,
                       )),

@@ -1,16 +1,13 @@
-import 'dart:convert';
+
 import 'package:nextadvisor/view/Perfil.dart';
-import 'package:nextadvisor/view/asesoria.dart';
 import 'package:nextadvisor/view/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
-import '../main.dart';
 import 'login.dart';
-import 'consultarAsesoria.dart';
+import 'consultarMisAsesorias.dart';
 import 'consultarAsesoriaEstudiate.dart';
-import 'ConsultarAsesoria_ST.dart';
+import 'consultarFAQS.dart';
 
 class EstudiantePage extends StatefulWidget {
   @override
@@ -20,11 +17,15 @@ class EstudiantePage extends StatefulWidget {
 class _EstudiantePageState extends State<EstudiantePage> {
   SharedPreferences sharedPreferences;
   int _currentIndex = 0;
+  
   final List<Widget> _children = [
+    
     HomeWidget(),
     PerfilWidget(),
     ConsultarAsesoriaEstudiante(),
-    ConsultarAsesoria()
+    Consultar(),
+    ConsultarPreguntas()
+
   ];
   @override
   void initState() {
@@ -57,27 +58,31 @@ class _EstudiantePageState extends State<EstudiantePage> {
           ),
         ],
       ),
-      body: Center(child: _children[_currentIndex]),
+      body: Center(
+          child: Container(
+        padding: EdgeInsets.all(15.0),
+        child: _children[_currentIndex],
+      )),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         iconSize: 30,
-        selectedItemColor: Color(0xFF386FA4),
         unselectedItemColor: Color(0xFF386FA4),
+        selectedItemColor: Color(0xFF386FA4),
         items: [
+          
           BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person), title: Text('Cuenta')),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.school), title: Text('Asesorias')),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.how_to_reg), title: Text('Mis asesorias')),
+          BottomNavigationBarItem(icon: Icon(Icons.person), title: Text('Cuenta')),
+          BottomNavigationBarItem(icon: Icon(Icons.school), title: Text('Asesorias')),
+          BottomNavigationBarItem(icon: Icon(Icons.how_to_reg), title: Text('Mis asesorias')),
+          BottomNavigationBarItem(icon: Icon(Icons.help), title: Text('FAQS'))
         ],
         onTap: (index) {
           setState(() {
             _currentIndex = index;
-          });
+            });
         },
       ),
     );
   }
 }
+

@@ -53,7 +53,7 @@ class _MainPageState extends State<MainPage> {
           (Route<dynamic> route) => false);
     }
     if (sharedPreferences.getInt("rol_id") == 2) {
-      // sharedPreferences.setString("nombreRol", "Asesor");
+      sharedPreferences.setString("nombreRol", "Asesor");
       Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(builder: (BuildContext context) => AsesorPage()),
           (Route<dynamic> route) => false);
